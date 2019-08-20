@@ -7,9 +7,9 @@ class Filter extends Component {
     render() {
         return (
         <div className="checkboxes">
-            <Checkbox onClick={this.props.isClicked}/>
+            <Checkbox onChange={this.props.onClick} checked={this.props.isNameChecked}/>
             <label>Name</label>
-            <Checkbox/>
+            <Checkbox onChange={this.props.onClick} checked={this.props.isAgeChecked}/>
             <label>Age</label>
         </div>
         );
