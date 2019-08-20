@@ -12,9 +12,16 @@ class App extends Component {
     };
   }
 
-  handleClick = () =>{
+  handleNameClick = () =>{
     this.setState({
       isNameClicked: !this.state.isNameClicked,
+      // isAgeClicked: !this.state.isAgeClicked,
+    })
+  }
+
+  handleAgeClick = () =>{
+    this.setState({
+      // isNameClicked: !this.state.isNameClicked,
       isAgeClicked: !this.state.isAgeClicked,
     })
   }
@@ -23,7 +30,7 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <center><h1>Birthday Records</h1></center>
-        <Filter onClick={this.handleClick} isNameChecked={this.state.isNameClicked} isAgeChecked={this.state.isAgeClicked}></Filter>
+        <Filter onNameClick={this.handleNameClick} onAgeClick={this.handleAgeClick} isNameChecked={this.state.isNameClicked} isAgeChecked={this.state.isAgeClicked}></Filter>
         <RecordTable age={this.state.isAgeClicked} name={this.state.isNameClicked}></RecordTable>
       </div>
     );
