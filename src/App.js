@@ -6,31 +6,51 @@ class App extends Component {
   constructor() {
     super();
 
-    this.state={
-      isNameClicked: false,
-      isAgeClicked: true,
-    }; 
+    this.state = {
+      selectedId: ''
+    };
+
+    // this.state={
+    //   isNameClicked: true,
+    //   isAgeClicked: false,
+    // }; 
   }
 
-  handleNameClick = () =>{
+  changeHandler = id => {
     this.setState({
-      isNameClicked: !this.state.isNameClicked,
-      // isAgeClicked: !this.state.isAgeClicked,
-    })
-  }
+      selectedId: id
+    });
+  };
 
-  handleAgeClick = () =>{
-    this.setState({
-      isNameClicked: !this.state.isNameClicked,
-      isAgeClicked: !this.state.isAgeClicked,
-    })
-  }
+  // handleNameClick = () =>{
+  //   this.setState({
+  //     isNameClicked: !this.state.isNameClicked,
+  //     // isAgeClicked: !this.state.isAgeClicked,
+  //   })
+  // }
+
+  // handleAgeClick = () =>{
+  //   this.setState({
+  //     isNameClicked: !this.state.isNameClicked,
+  //     isAgeClicked: !this.state.isAgeClicked,
+  //   })
+  // }
 
   render() {
     return (
       <div className="container-fluid">
         <center><h1>Birthday Records</h1></center>
-        <Filter onNameClick={this.handleNameClick} onAgeClick={this.handleAgeClick} isNameChecked={this.state.isNameClicked} isAgeChecked={this.state.isAgeClicked}></Filter>
+        <Filter 
+          // key={rowData.id}
+          selectedId={this.state.selectedId}
+          // rowData={rowData}
+          onSelect={this.changeHandler}
+          // onNameClick={this.handleNameClick} 
+          // onAgeClick={this.handleAgeClick} 
+          // isNameChecked={this.state.isNameClicked} 
+          // isAgeChecked={this.state.isAgeClicked}
+        >
+        </Filter>
         <RecordTable age={this.state.isAgeClicked} name={this.state.isNameClicked}></RecordTable>
       </div>
     );
