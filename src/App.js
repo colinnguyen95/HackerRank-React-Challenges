@@ -7,12 +7,12 @@ class App extends Component {
     super();
 
     this.state = {
-      selectedId: ''
+      selectedId: 0 
     };
 
     // this.state={
-    //   isNameClicked: true,
-    //   isAgeClicked: false,
+    //   isNameClicked: 'name',
+    //   isAgeClicked: 'age',
     // }; 
   }
 
@@ -42,6 +42,7 @@ class App extends Component {
         <center><h1>Birthday Records</h1></center>
         <Filter 
           // key={rowData.id}
+          id={this.state.isAgeClicked}
           selectedId={this.state.selectedId}
           // rowData={rowData}
           onSelect={this.changeHandler}
@@ -51,7 +52,12 @@ class App extends Component {
           // isAgeChecked={this.state.isAgeClicked}
         >
         </Filter>
-        <RecordTable age={this.state.isAgeClicked} name={this.state.isNameClicked}></RecordTable>
+        <RecordTable 
+          id={this.state.selectedId}
+          // age={this.state.isAgeClicked} 
+          // name={this.state.isNameClicked}
+        >
+        </RecordTable>
       </div>
     );
   }

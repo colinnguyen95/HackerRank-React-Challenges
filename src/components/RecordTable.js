@@ -40,7 +40,7 @@ class RecordTable extends Component {
     }
 
     render() {
-        const { name, age } = this.props;
+        const { name, age, id } = this.props;
         const sorted = this.people.sort((a,b) => {
             const da = new Date(a.dob);
             const db = new Date(b.dob);
@@ -48,7 +48,8 @@ class RecordTable extends Component {
             const ageSort = da > db ? 1 : -1;
             const nameSort = a.name.localeCompare(b.name);
 
-            return (name === true) ? nameSort : (age === true) ? ageSort : -1;
+            // return (name === true) ? nameSort : (age === true) ? ageSort : -1;
+            return (id === 'name') ? nameSort : (id === 'age') ? ageSort : -1;
         })
 
         // const sortedAge = this.people.sort((a,b) => {
