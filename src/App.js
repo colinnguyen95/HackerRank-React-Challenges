@@ -7,9 +7,9 @@ class App extends Component {
     super();
 
     this.state={
-      isNameClicked: true,
-      isAgeClicked: false,
-    };
+      isNameClicked: false,
+      isAgeClicked: true,
+    }; 
   }
 
   handleNameClick = () =>{
@@ -21,7 +21,7 @@ class App extends Component {
 
   handleAgeClick = () =>{
     this.setState({
-      // isNameClicked: !this.state.isNameClicked,
+      isNameClicked: !this.state.isNameClicked,
       isAgeClicked: !this.state.isAgeClicked,
     })
   }
